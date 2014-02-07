@@ -1,8 +1,6 @@
 <% @post.each do |post| %>
-
-    <div class="span5 well">
-      <h4 class="one-line-title"><%= link_to post.title, post_path(post) %></h4>
-      <%=raw post.embedded_url %>
-    </div>
-
+  <div id="video_column", class="span5 well">
+    <h4 class="one-line-title"><%= link_to post.title, post_path(post) %></h4>
+    <%=raw post.embedded_url %>
+  </div>
 <% end %>

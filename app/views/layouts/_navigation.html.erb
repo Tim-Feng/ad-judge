@@ -1,5 +1,15 @@
 <ul class="nav">
   <li>
-    <%= link_to "Ad Judge", root_path, :class => 'brand' %>
+    <%= link_to "Browse", root_path, :class => 'nav-item' %>
+  </li>
+</ul>
+<ul class="nav">
+  <li>
+    <%= link_to image_tag("adjudge_logo.png", :alt => "Ad Judge", :size => "235x40"), root_path, :class => 'nav-item' %>
+  </li>
+</ul>
+<ul class="nav">
+  <li>
+    <%= link_to 'New Post', new_post_path, :class => 'nav-item' %>
   </li>
 </ul>

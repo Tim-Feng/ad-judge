@@ -1,0 +1,28 @@
+<%= render 'shared/content_title', title: @post.title %>
+
+<div class='center'>
+  <%=raw @post.embedded_url %> <!-- Need helper to modify video size -->
+  <p>
+    [<%= link_to 'edit this post', edit_post_path(@post) %>]
+  </p>
+  <%= form_for [@post, @comment] do |f| %>
+    <%= render 'shared/errors', obj: @comment %>
+    <div class='row control-group'>
+<!--       <%= f.label :body  %> -->
+      <%= f.text_area :body, rows: 3, placeholder: '請留言：', class: 'span4' %>
+      <%= f.submit "新增留言", class: "btn btn-primary" %>
+    </div> 
+  <% end %>
+</div>  
+<h5>Comments</h5>
+
+<% @post.comments.each do |comment| %>
+  <div class="well span5 center">
+    <em>"<%= comment.body %>"</em>
+    <br/>
+    <span class="quiet">by</span> <%= comment.creator.user_name %>
+    <small>at <%= comment.created_at %></small>
+  </div>
+<% end %>
+
+

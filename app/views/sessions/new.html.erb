@@ -1,0 +1,14 @@
+<div class='well span6 center'> 
+<%= render 'shared/content_title', title: '登入' %> 
+  <%= form_tag '/login' do %>
+    <div class='control-group'>
+      <%= label_tag :user_name %>
+      <%= text_field_tag :user_name %>
+    </div>
+    <div class='control-group'>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
+    <%= submit_tag '登入', class: 'btn btn-success' %>
+  <% end %>
+</div>

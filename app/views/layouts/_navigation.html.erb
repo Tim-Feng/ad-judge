@@ -1,15 +1,39 @@
-<ul class="nav">
-  <li>
-    <%= link_to "Browse", root_path, :class => 'nav-item' %>
+<ul class="nav nav-extend">
+  <li class="nav-left">
+    <%= link_to "Browse", root_path, class: 'nav_item' %>
   </li>
-</ul>
-<ul class="nav">
+
   <li>
-    <%= link_to image_tag("adjudge_logo.png", :alt => "Ad Judge", :size => "235x40"), root_path, :class => 'nav-item' %>
+    <%= link_to image_tag("adjudge_logo.png", alt: "Ad Judge", size: "235x40"), root_path, :class => 'nav_item' %>
   </li>
+
+  <% if logged_in? %>
+    <li class="dropdown">
+      <%= link_to('',  class: 'dropdown-toggle', 'data-toggle' => 'dropdown') do %>
+        <%= current_user.user_name %>
+        <span class='caret'></span>
+      <% end %>
+      <ul class='dropdown-menu'>
+        <li>
+          <%= link_to user_path(current_user) do %>
+            <i class='icon-user'></i>
+            我的裁決
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_post_path do %>
+            <i class='icon-plus'></i>
+            上傳廣告
+          <% end %>
+        </li>        
+        <li>
+          <%= link_to logout_path do %>
+            <i class='icon-circle-arrow-left'></i>
+            登出
+          <% end %>
+        </li>
+      </ul>
+    </li>
+  <% end %>
 </ul>
-<ul class="nav">
-  <li>
-    <%= link_to 'New Post', new_post_path, :class => 'nav-item' %>
-  </li>
-</ul>
+

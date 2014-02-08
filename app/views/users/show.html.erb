@@ -1,0 +1,24 @@
+<div class='well'>
+  <dl class='dl-horizontal'>
+    <dd><%= @user.user_name %></dd>
+  </dl>
+</div>
+
+<ul class='nav nav-tabs'>
+  <li class='<%= 'active' if params[:tab] == 'posts' %>'>
+    <%= link_to "Posts (#{@user.posts.size})", user_path(@user, tab: 'posts') %>
+  </li>
+  <li class='<%= 'active' if params[:tab] == 'comments' %>'>
+    <%= link_to "Comments (#{@user.comments.size})", user_path(@user, tab: 'comments') %>
+  </li>
+</ul>
+
+<% if params[:tab] == 'posts' %>
+  <% @user.posts.each do |post| %>
+    <%= render 'posts/post', post: post %>
+  <% end %>
+<% elsif params[:tab] == 'comments' %>
+  <% @user.comments.each do |comment| %>
+    <%= render 'comments/comment', comment: comment, show_post: true %>
+  <% end %>
+<% end %>

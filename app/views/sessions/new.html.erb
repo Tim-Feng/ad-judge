@@ -1,5 +1,8 @@
 <div class='well span6 center'> 
-<%= render 'shared/content_title', title: '登入' %> 
+<%= render 'shared/content_title', title: '登入' %>
+  <div>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: 'btn btn-success btn-small' %>
+  </div>
   <%= form_tag '/login' do %>
     <div class='control-group'>
       <%= label_tag :user_name %>
@@ -10,5 +13,6 @@
       <%= password_field_tag :password %>
     </div>
     <%= submit_tag '登入', class: 'btn btn-success' %>
+    <%= link_to '尚未註冊?', register_path %>
   <% end %>
 </div>

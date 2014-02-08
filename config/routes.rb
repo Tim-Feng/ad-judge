@@ -4,6 +4,8 @@ AdJudge::Application.routes.draw do
   post '/login', to:'sessions#create'
   get '/logout', to: 'sessions#destroy'
   get '/register', to: 'users#new'
+  get '/auth/:provider/callback', to:'sessions#signin'
+  get '/auth/failure', to: redirect('/')
 
   resources :posts, except: [:destroy] do
     resources :comments, only: [:create]

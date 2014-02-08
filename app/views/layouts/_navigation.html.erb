@@ -1,6 +1,6 @@
 <ul class="nav nav-extend">
-  <li class="nav-left">
-    <%= link_to "Browse", root_path, class: 'nav_item' %>
+  <li>
+    <%= link_to "瀏覽", root_path, class: 'nav_item' %>
   </li>
 
   <li>
@@ -33,6 +33,10 @@
           <% end %>
         </li>
       </ul>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to "登入", login_path, class: 'nav_item' %>
     </li>
   <% end %>
 </ul>

@@ -3,12 +3,25 @@ class Post < ActiveRecord::Base
 
   belongs_to :creator, foreign_key: 'user_id', class_name: 'User'
   has_many :comments
+  has_many :votes, as: :voteable
 
   validates :url, presence: true, uniqueness: true
   
   sluggable_column :title
 
-    after_create :update_from_embedly
+  after_create :update_from_embedly
+
+  def total_votes
+    self.up_votes + self.down_votes
+  end
+
+  def up_votes
+    self.votes.where(vote: true).size
+  end
+
+  def down_votes
+    self.votes.where(vote: false).size
+  end
 
   def update_from_embedly
  

@@ -8,9 +8,11 @@ AdJudge::Application.routes.draw do
   get '/auth/failure', to: redirect('/')
 
   resources :posts, except: [:destroy] do
+    member do
+      post 'vote'
+    end
     resources :comments, only: [:create]
   end
 
   resources :users, only: [:show, :create, :edit, :update]
-  
 end

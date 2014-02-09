@@ -1,14 +1,13 @@
 <ul class="nav nav-extend">
-  <li>
-    <%= link_to "瀏覽", root_path, class: 'nav_item' %>
+  <li class="leftHeaderContent">
+    <%= link_to "瀏覽", root_path %>
   </li>
-
-  <li>
-    <%= link_to image_tag("adjudge_logo.png", alt: "Ad Judge", size: "235x40"), root_path, :class => 'nav_item' %>
+  <li class="logo">
+    <%= link_to image_tag("adjudge_logo.png", alt: "Ad Judge", size: "113x26"), root_path%>
   </li>
 
   <% if logged_in? %>
-    <li class="dropdown">
+    <li class="dropdown rightHeaderContent">
       <%= link_to('',  class: 'dropdown-toggle', 'data-toggle' => 'dropdown') do %>
         <%= current_user.user_name %>
         <span class='caret'></span>
@@ -35,8 +34,8 @@
       </ul>
     </li>
   <% else %>
-    <li>
-      <%= link_to "登入", login_path, class: 'nav_item' %>
+    <li class="rightHeaderContent">
+      <%= link_to "登入", login_path %>
     </li>
   <% end %>
 </ul>

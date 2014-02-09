@@ -24,16 +24,28 @@ body {
   float: none;
 }
 
-/*.brand {
-  margin-left: 0px;
-}*/
-
 .nav-extend {
   width: 940px;
 }
 
-.nav-left {
+.navbar .nav > li.leftHeaderContent {
   float: left;
+}
+
+.navbar .nav > li.logo {
+  position:absolute;
+  left: 50%;
+  right: 50%;
+  margin-left: -150px;
+  margin-right: -150px;
+}
+
+.navbar .nav > li.logo > a {
+  padding-top: 7px;
+}
+
+.navbar .nav > li.rightHeaderContent {
+  float: right;
 }
 
 .center {
@@ -47,6 +59,7 @@ body {
   white-space: nowrap;
   overflow: scroll;
 }
+
 #video_column {
   margin-right: 20px;
   background-color: #F7E7CE;
@@ -54,16 +67,7 @@ body {
   border-radius: 0px;
 }
 
-.center.navbar .nav,
-.center.navbar .nav > li {
-  float: none;
-  display: inline-block;
-  vertical-align: bottom;
-}
 
-.center .navbar-inner {
-  text-align: center;
-}
 
 .quiet {
   color: #ababab;

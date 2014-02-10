@@ -4,20 +4,20 @@
 </div>
 
 <ul class='nav nav-tabs'>
-  <li class='<%= 'active' if params[:tab] == 'posts' %>'>
-    <%= link_to "Posts (#{@user.posts.size})", user_path(@user, tab: 'posts') %>
+  <li class='<%= 'active' if params[:tab] == 'ups' %>'>
+    <%= link_to "喜歡 (#{@user.votes.where(vote: true).size})", user_path(@user, tab: 'ups') %>
   </li>
-  <li class='<%= 'active' if params[:tab] == 'comments' %>'>
-    <%= link_to "Comments (#{@user.comments.size})", user_path(@user, tab: 'comments') %>
+  <li class='<%= 'active' if params[:tab] == 'downs' %>'>
+    <%= link_to "討厭(#{@user.votes.where(vote: false).size})", user_path(@user, tab: 'downs') %>
   </li>
 </ul>
 
-<% if params[:tab] == 'posts' %>
-  <% @user.posts.each do |post| %>
-    <%= render 'posts/post', post: post %>
+<% if params[:tab] == 'ups' %>
+  <% @user.votes.where(vote: true).each do |vote| %>
+    <%= render 'posts/post', post: Post.find(vote.voteable_id) %>
   <% end %>
-<% elsif params[:tab] == 'comments' %>
-  <% @user.comments.each do |comment| %>
-    <%= render 'comments/comment', comment: comment, show_post: true %>
+<% elsif params[:tab] == 'downs' %>
+  <% @user.votes.where(vote: false).each do |vote| %>
+    <%= render 'posts/post', post: Post.find(vote.voteable_id) %>
   <% end %>
-<% end %>
+<% end %> 

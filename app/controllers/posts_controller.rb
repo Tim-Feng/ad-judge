@@ -1,6 +1,6 @@
   class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :vote]
-  before_action :require_user, except: [:index, :show, :vote]
+  before_action :require_user, except: [:index, :show]
   before_action :require_creator, only: [:edit, :update]
 
   def index
@@ -18,7 +18,6 @@
   def create
     @post = Post.new(post_params)
     @post.creator = current_user
-
     if @post.save
       flash[:notice] = "廣告上傳成功."
       redirect_to posts_path
@@ -45,7 +44,7 @@
     else
       flash[:error] = 'You can only vote on a post once.'
     end
-  redirect_to :back
+    redirect_to :back
   end
 
   private

@@ -1,0 +1,44 @@
+<!-- 如果投過票, 就秀投票結果 -->
+<% if current_user.votes.find_by(voteable_id: post.id) %> 
+  <div class="center">
+    <% if post.total_votes == 0 %>
+      <p>
+        還沒有人投票
+      </p>
+    <% elsif post.user_vote(current_user).nil? %>
+      <p>
+        <%=raw post.down_ratio %>%的人討厭這支廣告
+        <div class="progress span4 center">
+          <div class="bar bar-success" style= "width: <%=raw post.up_ratio %>%;"></div>
+          <div class="bar bar-danger" style= "width: <%=raw post.down_ratio %>%;" ></div>
+        </div>
+      </p>
+    <% elsif post.user_vote(current_user).vote %>
+      <p>
+        你和<%=raw post.up_ratio %>%的人都喜歡這支廣告
+        <div class="progress span4 center">
+          <div class="bar bar-success" style= "width: <%=raw post.up_ratio %>%;"></div>
+          <div class="bar bar-danger" style= "width: <%=raw post.down_ratio %>%;" ></div>
+        </div>
+      </p>
+    <% else %>
+      <p>
+        你和<%=raw post.down_ratio %>%的人都討厭這支廣告
+        <div class="progress span4 center">
+          <div class="bar bar-success" style= "width: <%=raw post.up_ratio %>%;"></div>
+          <div class="bar bar-danger" style= "width: <%=raw post.down_ratio %>%;" ></div>
+        </div>
+      </p>
+    <% end %>
+  </div>
+<!-- 如果投過票, 就給投票列(要做投票列partial) -->
+<% else %>
+    <div class='span4 center vote-like'>
+    <%= link_to vote_post_path(post, vote: true), method: 'post', class: 'btn btn-large btn-success' do %>
+      <i class='icon-thumbs-up'></i>喜歡
+    <% end %>
+    <%= link_to vote_post_path(post, vote: false), method: 'post', class: 'btn btn-large btn-danger'  do %>
+      <i class='icon-thumbs-down'></i>討厭
+    <% end %>
+  </div>
+<% end %>

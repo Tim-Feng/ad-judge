@@ -15,6 +15,18 @@ class Post < ActiveRecord::Base
     self.up_votes + self.down_votes
   end
 
+  def up_ratio
+    self.up_votes / self.total_votes
+  end
+
+  def down_ratio
+    100 - self.up_ratio
+  end
+
+  def user_vote(user)
+    self.votes.find_by(user_id: user.id)
+  end
+
   def up_votes
     self.votes.where(vote: true).size
   end

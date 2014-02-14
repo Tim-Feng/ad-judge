@@ -4,7 +4,7 @@
   before_action :require_creator, only: [:edit, :update]
 
   def index
-    @post = Post.all.sort_by{|x| x.total_votes}.reverse
+    @posts = Post.all
   end
 
   def show
@@ -17,6 +17,7 @@
 
   def create
     @post = Post.new(post_params)
+    @post.title = params[:title]
     @post.creator = current_user
     if @post.save
       flash[:notice] = "廣告上傳成功."
@@ -50,7 +51,7 @@
   private
 
   def post_params
-    params.require(:post,).permit(:url, :language)
+    params.require(:post).permit(:url, :language, :favicon_url)
   end
 
   def set_post

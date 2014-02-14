@@ -1,0 +1,8 @@
+<div class='span4 center vote-like'>
+  <%= link_to vote_post_path(post, vote: true), method: 'post', class: 'btn btn-large btn-success' do %>
+    <i class='icon-thumbs-up'></i>喜歡
+  <% end %>
+  <%= link_to vote_post_path(post, vote: false), method: 'post', class: 'btn btn-large btn-danger'  do %>
+    <i class='icon-thumbs-down'></i>討厭
+  <% end %>
+</div>

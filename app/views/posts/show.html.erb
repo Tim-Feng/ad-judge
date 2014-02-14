@@ -4,7 +4,8 @@
   <%=raw @post.embedded_url %> <!-- Need helper to modify video size -->
 </div>
 <br>
-<%= render 'vote', post: @post %>
+<%= render 'shared/progress_bar', post: @post %>
+<%= render 'shared/vote_buttons', post: @post %>
 <br>
 <div class="center">
   <% if logged_in? %>

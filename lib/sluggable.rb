@@ -2,21 +2,21 @@ module Sluggable
   extend ActiveSupport::Concern
 
   included do
-    after_validation :generate_slug!
+    before_save :generate_slug!
     class_attribute :slug_column
   end
 
   def generate_slug!
-    binding.pry
-    str = to_slug(self.send(self.class.slug_column.to_sym))
-    obj = self.class.find_by slug: str
+    the_slug = to_slug(self.send(self.class.slug_column.to_sym))
+    obj = self.class.find_by slug: the_slug
     count = 2
+
     while obj && obj != self
-      str = append_suffix(str, count)
-      obj = self.class.find_by slug: str
+      the_slug = append_suffix(str, count)
+      obj = self.class.find_by slug: the_slug
       count += 1
     end
-    self.slug = str.downcase
+    self.slug = the_slug.downcase
   end
 
   def append_suffix(str, count)

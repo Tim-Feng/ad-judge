@@ -4,7 +4,11 @@
   before_action :require_creator, only: [:edit, :update]
 
   def index
-    @posts = Post.all
+    if logged_in?
+      @posts = Post.where.not(id: Vote.all.map(&:voteable_id))
+    else
+      @post = Post.all.sort_by{|x| x.total_votes}.reverse
+    end
   end
 
   def show

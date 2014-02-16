@@ -5,9 +5,23 @@
 
   def index
     if logged_in?
-      @posts = Post.where.not(id: Vote.all.map(&:voteable_id))
+      @posts = Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).sort_by{|x| x.up_votes}.reverse
+      if params[:order] && params[:order] == 'up_votes'
+        @posts = @posts
+      elsif params[:order] && params[:order] == 'down_votes'
+        @posts = Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).sort_by{|x| x.down_votes}.reverse
+      elsif params[:order] && params[:order] == 'the_latest'
+        @posts = Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).sort_by{|x| x.created_at}.reverse 
+      end  
     else
-      @posts = Post.all.sort_by{|x| x.total_votes}.reverse
+      @posts = Post.all.sort_by{|x| x.up_votes}.reverse
+      if params[:order] && params[:order] == 'up_votes'
+        @posts = @posts
+      elsif params[:order] && params[:order] == 'down_votes'
+        @posts = Post.all.sort_by{|x| x.down_votes}.reverse
+      elsif params[:order] && params[:order] == 'the_latest'
+        @posts = Post.all.sort_by{|x| x.created_at}.reverse
+      end  
     end
   end
 
@@ -50,6 +64,10 @@
       flash[:error] = 'You can only vote on a post once.'
     end
     redirect_to :back
+  end
+
+  def post_voted?(post)
+    Vote.all.map(&:voteable_id).include?(post.id)
   end
 
   private

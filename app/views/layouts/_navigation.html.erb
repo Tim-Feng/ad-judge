@@ -1,6 +1,26 @@
 <ul class="nav nav-extend">
-  <li class="leftHeaderContent">
-    <%= link_to "瀏覽", root_path %>
+  <li class="dropdown leftHeaderContent">
+    <%= link_to('',  class: 'dropdown-toggle', 'data-toggle' => 'dropdown') do %>
+        <i class='icon-align-justify'></i>
+        <span class='caret'></span>
+      <% end %>
+      <ul class='dropdown-menu pull-left'>
+        <li>
+          <%= link_to root_path(order: 'up_votes') do %>
+            最多人喜歡的廣告
+          <% end %>
+        </li>
+        <li>
+          <%= link_to root_path(order: 'down_votes') do %>
+            最多人討厭的廣告
+          <% end %>
+        </li>        
+        <li>
+          <%= link_to root_path(order: 'the_latest') do %>
+            最新的廣告
+          <% end %>
+        </li>
+      </ul>
   </li>
   <li class="logo">
     <%= link_to image_tag("adjudge_logo.png", alt: "Ad Judge", size: "113x26"), root_path%>
@@ -12,7 +32,7 @@
         <%= current_user.user_name %>
         <span class='caret'></span>
       <% end %>
-      <ul class='dropdown-menu'>
+      <ul class='dropdown-menu pull-right'>
         <li>
           <%= link_to user_path(current_user) do %>
             <i class='icon-user'></i>

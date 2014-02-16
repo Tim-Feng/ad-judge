@@ -14,7 +14,9 @@
         @posts = Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).sort_by{|x| x.created_at}.reverse 
       end  
     else
+     # Need to fix Post.all
       @posts = Post.all.sort_by{|x| x.up_votes}.reverse
+      
       if params[:order] && params[:order] == 'up_votes'
         @posts = @posts
       elsif params[:order] && params[:order] == 'down_votes'

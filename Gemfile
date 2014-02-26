@@ -9,6 +9,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'omniauth-facebook'
 gem 'embedly', '~> 1.9.0'
 gem 'settingslogic'
+gem 'kaminari'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

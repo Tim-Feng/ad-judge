@@ -4,26 +4,30 @@
   before_action :require_creator, only: [:edit, :update]
 
   def index
+     @posts = Post.all.page(params[:page]).per(6)
     if logged_in?
-      @posts = Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).sort_by{|x| x.up_votes}.reverse
-      if params[:order] && params[:order] == 'up_votes'
-        @posts = @posts
-      elsif params[:order] && params[:order] == 'down_votes'
-        @posts = Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).sort_by{|x| x.down_votes}.reverse
-      elsif params[:order] && params[:order] == 'the_latest'
-        @posts = Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).sort_by{|x| x.created_at}.reverse 
-      end  
-    else
-     # Need to fix Post.all
-      @posts = Post.all.sort_by{|x| x.up_votes}.reverse
+      @posts = Kaminari.paginate_array(Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).order(:up_votes).reverse).page(params[:page]).per(4)
       
       if params[:order] && params[:order] == 'up_votes'
         @posts = @posts
       elsif params[:order] && params[:order] == 'down_votes'
-        @posts = Post.all.sort_by{|x| x.down_votes}.reverse
+        @posts = Kaminari.paginate_array(Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).order(:down_votes).reverse).page(params[:page]).per(4)
       elsif params[:order] && params[:order] == 'the_latest'
-        @posts = Post.all.sort_by{|x| x.created_at}.reverse
+        @posts = Kaminari.paginate_array(Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).order(:created_at).reverse).page(params[:page]).per(4)
       end  
+    else
+    #   @posts = Post.page(params[:page]).per(4)
+      if params[:order] && params[:order] == 'up_votes'
+        @posts = @posts
+      elsif params[:order] && params[:order] == 'down_votes'
+        @posts = @posts.order(:down_votes).page(params[:page]).per(4).reverse
+      elsif params[:order] && params[:order] == 'the_latest'
+        @posts = @posts.order(:created_at).page(params[:page]).per(4).reverse
+      end  
+    end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.js
     end
   end
 
@@ -41,6 +45,9 @@
     @post.creator = current_user
     if @post.save
       flash[:notice] = "廣告上傳成功."
+      @post.up_votes = 0
+      @post.down_votes = 0
+      @post.save
       redirect_to posts_path
     else  
       render :new
@@ -60,12 +67,28 @@
 
   def vote
     vote = Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
-    if vote.valid?
-      flash[:notice] = 'Your vote was counted.'
-    else
-      flash[:error] = 'You can only vote on a post once.'
+    respond_to do |format|
+      format.html do 
+        if vote.valid?
+          flash[:notice] = 'Your vote was counted.'
+          if :vote
+            post = Post.find(vote.voteable_id)
+            post.up_votes = post.up_votes.to_i + 1
+            post.down_votes = post.down_votes.to_i
+          else 
+            post.down_votes = post.down_votes + 1
+            post.up_votes = post.up_votes.to_i
+          end
+          post.save
+        else
+          flash[:error] = 'You can only vote on a post once.'
+        end
+        redirect_to :back
+      end
+      format.js
     end
-    redirect_to :back
+
+    
   end
 
   def post_voted?(post)

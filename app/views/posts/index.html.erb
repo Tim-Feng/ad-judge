@@ -1,5 +1,9 @@
-<div class="center2 visible-desktop">
+<div id="main_items" class="center2 visible-desktop">
   <% @posts.each do |post| %>
     <%= render 'post', post: post %>
   <% end %>
+</div>
+
+<div class="paginate">
+  <%= paginate @posts, remote: true %>
 </div>

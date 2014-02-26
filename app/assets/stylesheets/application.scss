@@ -91,6 +91,15 @@ body {
   border-width: 1px;
 }
 
+.paginate {
+  display: none;
+}
+
+.action_column_left {
+  float: left;
+  margin-left: 0px;
+}
+
 /*div.comment_votes {
   padding: 10px;
 }*/

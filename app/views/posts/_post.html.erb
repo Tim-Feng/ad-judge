@@ -2,7 +2,13 @@
   <h4 class="one-line-title"><%= link_to post.title, post_path(post) %></h4>
     <iframe width="360" height="202" src="//www.youtube.com/embed/<%== fix_embedded_url(post.url) %>" frameborder="0" allowfullscreen></iframe>
   <hr>
-  <%= render 'shared/progress_bar', post: post %>
-  <%= render 'shared/vote_buttons', post: post %>
+  <div id="action_column_left_<%=post.id%>" class="span2 action_column_left">
+    <%= render 'shared/vote_buttons', post: post %>
+  </div>
+  <div id="action_column_right_<%=post.id%>" class="span3 action_column_right">
+    <div class="progress">
+      <div class="bar" style="width: 0%;"></div>
+    </div>
+  </div>
 </div>
 

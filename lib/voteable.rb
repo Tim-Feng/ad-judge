@@ -14,18 +14,10 @@ module Voteable
   end
 
   def down_ratio
-    self.down_votes.to_f / self.total_votes.to_f * 100
+    (100 - up_ratio).to_f
   end
 
   def user_vote(user)
     self.votes.find_by(user_id: user.id)
-  end
-
-  def up_votes
-    self.votes.where(vote: true).size
-  end
-
-  def down_votes
-    self.votes.where(vote: false).size
   end
 end

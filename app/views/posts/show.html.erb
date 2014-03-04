@@ -3,9 +3,13 @@
 <div class='center'>
   <%=raw @post.embedded_url %> <!-- Need helper to modify video size -->
 </div>
-<br>
-<%= render 'shared/progress_bar', post: @post %>
-<%= render 'shared/vote_buttons', post: @post %>
+<br>  
+<% if logged_in? && current_user.votes.pluck(:voteable_id).include?(@post.id) %>
+  <%= render 'shared/progress_bar', post: @post %>
+<% else %>
+  <%= render 'shared/progress_bar', post: @post %>
+  <%= render 'shared/vote_buttons', post: @post %>
+<% end %>
 <br>
 <div class="center">
   <% if logged_in? %>

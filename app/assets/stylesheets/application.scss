@@ -97,7 +97,19 @@ body {
 
 .action_column_left {
   float: left;
-  margin-left: 0px;
+  margin-left: -5px;
+}
+
+.action_column_right {
+  margin-right: 5px;
+}
+
+.social_share_column {
+  margin-top: 8px;
+}
+
+.vote_result_text {
+  margin-bottom: 0px;
 }
 
 /*div.comment_votes {

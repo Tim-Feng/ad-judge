@@ -1,0 +1,8 @@
+<div class='center vote-like'>
+  <%= link_to fake_vote_post_path(post), method: 'post', remote: true, class: 'btn btn-large btn-success' do %>
+    <i class='icon-thumbs-up'></i>
+  <% end %>
+  <%= link_to fake_vote_post_path(post), method: 'post', remote: true, class: 'btn btn-large btn-danger' do %>
+    <i class='icon-thumbs-down'></i>
+  <% end %>
+</div>

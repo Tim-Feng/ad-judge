@@ -17,11 +17,21 @@
 </ul>
 
 <% if params[:tab] == 'ups' %>
-  <% @user.votes.where(vote: true).each do |vote| %>
-    <%= render 'posts/post', post: Post.find(vote.voteable_id) %>
-  <% end %>
+  <div id="main_items" class="center2">
+    <% @post_vote_true.each do |post| %>
+      <%= render 'posts/post', post: post, tab: 'ups' %>
+    <% end %>
+  </div>
+  <div class="paginate">
+    <%= paginate @post_vote_true, remote: true %>
+  </div>
 <% elsif params[:tab] == 'downs' %>
-  <% @user.votes.where(vote: false).each do |vote| %>
-    <%= render 'posts/post', post: Post.find(vote.voteable_id) %>
-  <% end %>
-<% end %> 
+  <div id="main_items" class="center2">
+    <% @post_vote_false.each do |post| %>
+      <%= render 'posts/post', post: post %>
+    <% end %>
+  </div>
+  <div class="paginate">
+    <%= paginate @post_vote_false, remote: true %>
+  </div>
+<% end %>

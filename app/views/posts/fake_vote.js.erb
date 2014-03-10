@@ -1,0 +1,2 @@
+$("#action_column_left_<%=@post.id%>").html('<%=j render partial: 'shared/social_share_column', locals: { post: @post } %>');
+$("#action_column_right_<%=@post.id%>").html('<%=j render partial: 'shared/progress_bar', locals: { post: @post } %>');

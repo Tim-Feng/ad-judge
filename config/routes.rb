@@ -11,6 +11,9 @@ AdJudge::Application.routes.draw do
     member do
       post 'vote'
     end
+    member do
+      post 'fake_vote'
+    end
     resources :comments, only: [:create]
   end
 

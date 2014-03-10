@@ -19,7 +19,9 @@ class UsersController < ApplicationController
   end
 
   def show
-  
+    @post_vote_true = Kaminari.paginate_array(Post.where(id: @user.votes.where(vote: true).pluck(:voteable_id).uniq).order(:up_votes).reverse).page(params[:page]).per(4)
+    @post_vote_false = Kaminari.paginate_array(Post.where(id: @user.votes.where(vote: false).pluck(:voteable_id).uniq).order(:down_votes).reverse).page(params[:page]).per(4)
+
   end
 
   private

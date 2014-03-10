@@ -1,13 +1,11 @@
   class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :vote]
-  before_action :require_user, except: [:index, :show]
+  before_action :set_post, only: [:show, :edit, :update, :vote, :fake_vote]
+  before_action :require_user, except: [:index, :show, :fake_vote]
   before_action :require_creator, only: [:edit, :update]
 
   def index
-     @posts = Post.all.page(params[:page]).per(4)
     if logged_in?
       @posts = Kaminari.paginate_array(Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).order(:up_votes).reverse).page(params[:page]).per(4)
-      
       if params[:order] && params[:order] == 'up_votes'
         @posts = @posts
       elsif params[:order] && params[:order] == 'down_votes'
@@ -16,13 +14,13 @@
         @posts = Kaminari.paginate_array(Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).order(:created_at).reverse).page(params[:page]).per(4)
       end  
     else
-    #   @posts = Post.page(params[:page]).per(4)
+      @posts = Kaminari.paginate_array(Post.order(:up_votes).reverse).page(params[:page]).per(4)
       if params[:order] && params[:order] == 'up_votes'
         @posts = @posts
       elsif params[:order] && params[:order] == 'down_votes'
-        @posts = @posts.order(:down_votes).page(params[:page]).per(4).reverse
+        @posts = Kaminari.paginate_array(Post.order(:down_votes).reverse).page(params[:page]).per(4)
       elsif params[:order] && params[:order] == 'the_latest'
-        @posts = @posts.order(:created_at).page(params[:page]).per(4).reverse
+        @posts = Kaminari.paginate_array(Post.order(:created_at).reverse).page(params[:page]).per(4)
       end  
     end
     respond_to do |format|
@@ -67,17 +65,26 @@
 
   def vote
     @vote = Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
-    binding.pry
+
     if @vote.valid?
       if @vote.vote
         @post.up_votes = @post.up_votes + 1
-      else 
+      elsif !@vote.vote 
         @post.down_votes = @post.down_votes + 1
       end
       @post.save
     end
     respond_to do |format|
       format.html do
+        redirect_to :back
+      end
+      format.js
+    end
+  end
+
+  def fake_vote
+    respond_to do |format|
+      format.html do# fake_vote.html.erb
         redirect_to :back
       end
       format.js

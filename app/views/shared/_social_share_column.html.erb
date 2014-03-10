@@ -1,3 +1,9 @@
-<div class="social_share_column">
-  <%= link_to image_tag("facebook_share_en.png", alt: "facebook_share", size: "113x33") %>
-</div>
+<% if logged_in? %>
+  <div class="social_share_column">
+    <%= link_to image_tag("facebook_share_en.png", alt: "login", size: "113x33") %>  
+  </div>
+<% else %>
+  <div class="social_share_column">
+    <%= link_to image_tag("facebook_share_en.png", alt: "login", size: "113x33"), login_path %>  
+  </div>
+<% end %>

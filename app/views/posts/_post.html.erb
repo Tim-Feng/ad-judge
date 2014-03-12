@@ -1,34 +1,35 @@
-<div class="span5 well">
-  <h4 class="one-line-title"><%= link_to post.title, post_path(post) %></h4>
-    <iframe width="360" height="202" src="//www.youtube.com/embed/<%== fix_embedded_url(post.url) %>" frameborder="0" allowfullscreen></iframe>
-  <hr>
-  <% if logged_in? %>
-    <% if params[:action] == 'index' %>
-      <div id="action_column_left_<%=post.id%>" class="span2 action_column_left">
-        <%= render 'shared/vote_buttons', post: post %>
-      </div>
-    <% elsif params[:action] == 'show' %>
-      <div id="action_column_left_<%=post.id%>" class="span2 action_column_left">
-        <%= render 'shared/social_share_column', post: post %>
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+  <div class="well index_placement center">
+    <h4 class="one-line-title"><%= link_to post.title, post_path(post) %></h4>
+      <iframe width="360" height="202" src="//www.youtube.com/embed/<%== fix_embedded_url(post.url) %>" frameborder="0" allowfullscreen></iframe>
+    <hr>
+    <% if logged_in? %>
+      <% if params[:action] == 'index' %>
+        <div id="action_column_left_<%=post.id%>" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 action_column_left">
+          <%= render 'shared/vote_buttons', post: post %>
+        </div>
+      <% elsif params[:action] == 'show' %>
+        <div id="action_column_left_<%=post.id%>" class="col-xs-4 col-sm-4 col-md-4 col-lg-4 action_column_left">
+          <%= render 'shared/social_share_column', post: post %>
+        </div>
+      <% end %>
+    <% else %>
+      <div id="action_column_left_<%=post.id%>" class="col-xs-4 col-sm-4 col-md-4 col-lg-4  action_column_left">
+        <%= render 'shared/fake_vote', post: post %>
       </div>
     <% end %>
-  <% else %>
-    <div id="action_column_left_<%=post.id%>" class="span2 action_column_left">
-      <%= render 'shared/fake_vote', post: post %>
-    </div>
-  <% end %>
 
-  <% if params[:action] == 'index' %>
-    <div id="action_column_right_<%=post.id%>" class="span3 action_column_right">
-      <br>
-      <div class="progress">
-        <div class="bar" style="width: 0%;"></div>
+    <% if params[:action] == 'index' %>
+      <div id="action_column_right_<%=post.id%>" class="col-xs-8 col-sm-8 col-md-8 col-lg-8  action_column_right">
+        <br>
+        <div class="progress">
+          <div class="progress-bar" style="width: 0%;"></div>
+        </div>
       </div>
-    </div>
-  <% elsif params[:action] == 'show' %>
-    <div id="action_column_right_<%=post.id%>" class="span3 action_column_right">
-      <%= render 'shared/progress_bar', post: post %>
-    </div>
-  <% end %>
-
+    <% elsif params[:action] == 'show' %>
+      <div id="action_column_right_<%=post.id%>" class="col-xs-8 col-sm-8 col-md-8 col-lg-8  action_column_right">
+        <%= render 'shared/progress_bar', post: post %>
+      </div>
+    <% end %>
+  </div>
 </div>

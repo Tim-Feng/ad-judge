@@ -1,13 +1,13 @@
 <%= render 'shared/errors', obj: @post %>
 
 <%= form_for @post do |f| %>
-  <div class='control-group'>
+  <div class='form-group'>
     <%= f.label :url , '廣告連結'%>
     <%= f.text_field :url, :id => 'url' %>
     <div class="selector-wrapper"></div>
   </div>
   <br>
-  <div class='control-group'>
+  <div class='form-group'>
     <%= f.label :language, '廣告語系' %>
     <%= f.select :language, [['英文', 'english'], ['中文' ,'chinese'], ['日文', 'japanese']] %>
   </div> 

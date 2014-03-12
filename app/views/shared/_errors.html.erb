@@ -1,6 +1,6 @@
 <% if obj.errors.any? %>
   <div class='row center'>
-    <div class='alert alert-error span4 center'>
+    <div class='alert alert-danger col-xs-10 col-sm-10 col-md-10 col-lg-10 center'>
       <h5>Please fix following errors:</h5>
       <ul>
         <% obj.errors.full_messages.each do |msg| %>

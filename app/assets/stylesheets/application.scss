@@ -24,10 +24,6 @@ body {
   float: none;
 }
 
-.nav-extend {
-  width: 940px;
-}
-
 .navbar .nav > li.leftHeaderContent {
   float: left;
 }
@@ -41,7 +37,7 @@ body {
 }
 
 .navbar .nav > li.logo > a {
-  padding-top: 7px;
+  padding-top: 12px;
 }
 
 .navbar .nav > li.rightHeaderContent {
@@ -60,21 +56,9 @@ body {
   overflow: scroll;
 }
 
-.center2 {
-  width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.quiet {
-  color: #ababab;
-}
-
-.label  {
-  a, a:hover, a:focus {
-    color: #fff;
-    text-decoration: none;
-  }
+.progress {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .well {
@@ -84,6 +68,13 @@ body {
   border-width: 1px;
 }
 
+.index_placement {
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-bottom: 8%;
+  padding-bottom: 12%;
+}
+
 .paginate {
   display: none;
 }
@@ -91,6 +82,7 @@ body {
 .action_column_left {
   float: left;
   margin-left: -5px;
+  padding-top: 6px;
 }
 
 .action_column_right {

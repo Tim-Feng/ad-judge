@@ -20,9 +20,9 @@
     <% end %>
     <%= form_for [@post, @comment] do |f| %>
       <%= render 'shared/errors', obj: @comment %>
-      <div class='row control-group'>
+      <div class='row form-group'>
   <!--       <%= f.label :body  %> -->
-        <%= f.text_area :body, rows: 3, placeholder: '請留言：', class: 'span4' %>
+        <%= f.text_area :body, rows: 3, placeholder: '請留言：', class: 'col-xs-12 col-sm-12 col-md-6 col-lg-6 center' %>
         <%= f.submit "新增留言", class: "btn btn-primary" %>
       </div> 
     <% end %>

@@ -1,15 +1,15 @@
-<div class='well span6 center'> 
+<div class='well col-xs-12 col-sm-12 col-md-6 col-lg-6 center'> 
 <%= render 'shared/content_title', title: '登入, 分享你的品味' %>
   <div>
-    <%= link_to image_tag("login_with_facebook.png", alt: "Facebook Login", size: "226x31"), "/auth/facebook" %>
+    <%= link_to image_tag("login_with_facebook.png", alt: "Facebook Login", size: "226x43"), "/auth/facebook" %>
   </div>
   <br>
   <%= form_tag '/login' do %>
-    <div class='control-group'>
+    <div class='form-group'>
       <%= label_tag :user_name %>
       <%= text_field_tag :user_name %>
     </div>
-    <div class='control-group'>
+    <div class='form-group'>
       <%= label_tag :password %>
       <%= password_field_tag :password %>
     </div>

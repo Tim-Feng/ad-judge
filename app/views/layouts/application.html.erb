@@ -11,26 +11,24 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
-
+<!--
     <script src="http://cdn.embed.ly/jquery.embedly-3.0.5.min.js" type="text/javascript"></script>
     <script src="http://cdn.embed.ly/jquery.preview-0.3.2.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="http://cdn.embed.ly/jquery.preview-0.3.2.css" />
-
+-->
   </head>
   <body>
     <header>
-      <div class="navbar navbar-fixed-top navbar-inverse center">
-        <div class="navbar-inner">
-          <div class="container">
-            <%= render 'layouts/navigation' %>
-          </div>
+      <nav class="navbar navbar-fixed-top navbar-inverse center" role="navigation">
+        <div class="container">
+          <%= render 'layouts/navigation' %>
         </div>
-      </div>
+      </nav>
     </header>
     <div id="main" role="main">
       <div class="container center">
          <div class="row center">
-          <div class="span12 center">
+          <div class="col-sm-12 col-mid-12 col-lg-12 center">
             <%= render 'layouts/messages' %>
             <%= yield %>
           </div>

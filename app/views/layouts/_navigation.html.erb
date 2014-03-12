@@ -1,10 +1,10 @@
-<ul class="nav nav-extend">
+<ul class="nav">
   <li class="dropdown leftHeaderContent">
     <%= link_to('',  class: 'dropdown-toggle', 'data-toggle' => 'dropdown') do %>
-        <i class='icon-align-justify'></i>
-        <span class='caret'></span>
-      <% end %>
-      <ul class='dropdown-menu pull-left'>
+      <span class='glyphicon glyphicon-align-justify'></span>
+      <span class='caret'></span>
+    <% end %>
+      <ul class='dropdown-menu dropdown-menu-left'>
         <li>
           <%= link_to root_path(order: 'up_votes') do %>
             最多人喜歡的廣告
@@ -32,22 +32,22 @@
         <%= current_user.user_name %>
         <span class='caret'></span>
       <% end %>
-      <ul class='dropdown-menu pull-right'>
+      <ul class='dropdown-menu dropdown-menu-right'>
         <li>
           <%= link_to user_path(current_user) do %>
-            <i class='icon-user'></i>
+            <span class='glyphicon glyphicon-user'></span>
             我的裁決
           <% end %>
         </li>
         <li>
           <%= link_to new_post_path do %>
-            <i class='icon-plus'></i>
+            <span class='glyphicon glyphicon-cloud-upload'></span>
             上傳廣告
           <% end %>
         </li>        
         <li>
           <%= link_to logout_path do %>
-            <i class='icon-circle-arrow-left'></i>
+            <span class='glyphicon glyphicon-circle-arrow-left'></span>
             登出
           <% end %>
         </li>

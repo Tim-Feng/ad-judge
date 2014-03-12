@@ -1,12 +1,12 @@
-<div class='well span6 center'>
+<div class='well col-xs-10 col-sm-6 col-md-4 col-lg-4 center'>
   <%= render 'shared/content_title', title: '註冊' %>
   <%= form_for @user do |f| %>
     <%= render 'shared/errors', obj: @user %>
-    <div class='control-group'>
+    <div class='form-group'>
       <%= f.label :user_name %>
       <%= f.text_field :user_name %>
     </div>
-    <div class='control-group'>
+    <div class='form-group'>
       <%= f.label :password %>
       <%= f.password_field :password %>
     </div>

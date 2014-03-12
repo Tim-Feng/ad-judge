@@ -11,7 +11,7 @@
     還沒有人投票
   </p>
 <% end %>
-<div class="progress span3 center">
-  <div class="bar bar-success" style= "width: <%=raw number_to_percentage(post.up_ratio, precision: 2) %>%;"></div>
-  <div class="bar bar-danger" style= "width: <%=raw number_to_percentage(post.down_ratio, precision: 2) %>%;" ></div>
+<div class="progress col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuemin="0" style= "width: <%=raw number_to_percentage(post.up_ratio, precision: 2) %>%;"></div>
+  <div class="progress-bar progress-bar-danger" style= "width: <%=raw number_to_percentage(post.down_ratio, precision: 2) %>%;" ></div>
 </div>

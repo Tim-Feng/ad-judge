@@ -4,6 +4,7 @@
   before_action :require_creator, only: [:edit, :update]
 
   def index
+
     if logged_in?
       @posts = Kaminari.paginate_array(Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).order(:up_votes).reverse).page(params[:page]).per(4)
       if params[:order] && params[:order] == 'up_votes'
@@ -21,7 +22,8 @@
         @posts = Kaminari.paginate_array(Post.order(:down_votes).reverse).page(params[:page]).per(4)
       elsif params[:order] && params[:order] == 'the_latest'
         @posts = Kaminari.paginate_array(Post.order(:created_at).reverse).page(params[:page]).per(4)
-      end  
+      end 
+
     end
     respond_to do |format|
       format.html # index.html.erb

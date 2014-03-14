@@ -1,36 +1,54 @@
-<%= render 'shared/content_title', title: @post.title %>
-
-<div class='center'>
-  <%=raw @post.embedded_url %> <!-- Need helper to modify video size -->
-</div>
-<br>  
-<% if logged_in? && current_user.votes.pluck(:voteable_id).include?(@post.id) %>
-  <%= render 'shared/progress_bar', post: @post %>
-<% else %>
-  <%= render 'shared/progress_bar', post: @post %>
-  <%= render 'shared/vote_buttons', post: @post %>
-<% end %>
-<br>
-<div class="center">
-  <% if logged_in? %>
-    <% if current_user == @post.creator %>
-      <p>
-        [<%= link_to 'edit this post', edit_post_path(@post) %>]
-      </p>
-    <% end %>
-    <%= form_for [@post, @comment] do |f| %>
-      <%= render 'shared/errors', obj: @comment %>
-      <div class='row form-group'>
-  <!--       <%= f.label :body  %> -->
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 post_decoration center">
+  <%= render 'shared/content_title', title: @post.title %>
+  <iframe width="320" height="180" src="//www.youtube.com/embed/<%== fix_embedded_url(@post.url) %>" frameborder="0" allowfullscreen></iframe> <!-- Need helper to modify video size -->
+  <hr>  
+  <% if logged_in? && current_user.votes.pluck(:voteable_id).include?(@post.id) %>
+    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 action_column_left">
+      <%= render 'shared/social_share_column', post: @post %>
+    </div>
+    <div id="action_column_right_<%=@post.id%>" class="col-xs-7 col-sm-7 col-md-7 col-lg-7  action_column_right">
+        <%= render 'shared/progress_bar', post: @post %>
+    </div>
+  <% elsif logged_in? %>
+    <div id="action_column_left_<%=@post.id%>" class="col-xs-5 col-sm-5 col-md-5 col-lg-5 action_column_left">
+      <%= render 'shared/vote_buttons', post: @post %>
+    </div>
+    <div id="action_column_right_<%=@post.id%>" class="col-xs-7 col-sm-7 col-md-7 col-lg-7  action_column_right">
+      <br>
+      <div class="progress col-xs-10 col-sm-10 col-md-10 col-lg-10 vote_progress">
+        <div class="progress-bar" style="width: 0%;"></div>
+      </div>
+    </div>
+  <% else %>
+    <div id="action_column_left_<%=@post.id%>" class="col-xs-5 col-sm-5 col-md-5 col-lg-5  action_column_left">
+      <%= render 'shared/fake_vote', post: @post %>
+    </div>
+    <div id="action_column_right_<%=@post.id%>" class="col-xs-7 col-sm-7 col-md-7 col-lg-7  action_column_right">
+      <br>
+      <div class="progress col-xs-10 col-sm-10 col-md-10 col-lg-10 vote_progress">
+        <div class="progress-bar" style="width: 0%;"></div>
+      </div>
+    </div>
+  <% end %>
+  <br>
+  <div class="center">
+    <% if logged_in? %>
+      <% if current_user == @post.creator %>
+        <p>
+          [<%= link_to 'edit this post', edit_post_path(@post) %>]
+        </p>
+      <% end %>
+      <%= form_for [@post, @comment] do |f| %>
+        <%= render 'shared/errors', obj: @comment %>
+        <div class='row form-group'>
         <%= f.text_area :body, rows: 3, placeholder: '請留言：', class: 'col-xs-12 col-sm-12 col-md-6 col-lg-6 center' %>
         <%= f.submit "新增留言", class: "btn btn-primary" %>
-      </div> 
-    <% end %>
-  <% end %> 
+        </div> 
+      <% end %>
+    <% end %> 
+  </div>
+  <% @post.reload.comments.each do |comment| %>
+    <%= render 'comments/comment', comment: comment %>
+  <% end %>
 </div>
-
-<% @post.reload.comments.each do |comment| %>
-  <%= render 'comments/comment', comment: comment %>
-<% end %>
-
 

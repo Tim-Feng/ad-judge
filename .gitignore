@@ -16,4 +16,5 @@
 /tmp
 
 # Security
-/config/settings/my_settings.yml
+/config/application.yml
+/config/initializers/app_env_vars.rb

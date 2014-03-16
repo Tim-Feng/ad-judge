@@ -1,0 +1,15 @@
+defaults: &defaults
+  facebook:
+    username: <%= ENV['FACEBOOK_KEY'] %>
+    password: <%= ENV['FACEBOOK_SECRET'] %>
+  embedly:
+    
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

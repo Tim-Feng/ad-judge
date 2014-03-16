@@ -1,6 +1,8 @@
 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 post_decoration">
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 post_title center">
     <h4 class="one-line-title"><%= link_to post.title, post_path(post) %></h4>
-      <iframe width="320" height="180" src="//www.youtube.com/embed/<%== fix_embedded_url(post.url) %>" frameborder="0" allowfullscreen></iframe>
+  </div>
+    <iframe width="320" height="180" src="//www.youtube.com/embed/<%== fix_embedded_url(post.url) %>" frameborder="0" allowfullscreen></iframe>
     <hr>
     <% if logged_in? %>
       <% if params[:action] ==  'index' %>

@@ -16,4 +16,4 @@
 /tmp
 
 # Security
-/config/application.yml
+/config/application.ymlconfig/initializers/app_env_vars

@@ -17,4 +17,4 @@
 
 # Security
 /config/application.yml
-config/initializers/app_env_vars
+/config/initializers/app_env_vars

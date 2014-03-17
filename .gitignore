@@ -16,5 +16,4 @@
 /tmp
 
 # Security
-
-config/initializers/app_env_vars
+config/initializers/app_env_vars.rb

@@ -18,7 +18,7 @@ class Post < ActiveRecord::Base
  
     urls = [url]
 
-    embedly_api = Embedly::API.new(:key => MySettings.embedly_key)
+    embedly_api = Embedly::API.new(:key => Settings.embedly.key)
     embedly_objs = embedly_api.oembed(:urls => urls)
     embedly_obj = embedly_objs[0]
  

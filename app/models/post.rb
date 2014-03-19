@@ -34,11 +34,10 @@ class Post < ActiveRecord::Base
     # post.thumbnail_url     =  response_data[:thumbnail_url]
     # post.thumbnail_width   =  response_data[:thumbnail_width]
     # post.thumbnail_height  =  response_data[:thumbnail_height]
-    post.embedded_url      =  response_data[:html]
+    # post.embedded_url      =  response_data[:html]
     post.url               =  response_data[:url]
     post.width             =  response_data[:width]
     post.height            =  response_data[:height]
-    
     post.save
   end
 

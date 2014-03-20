@@ -67,7 +67,6 @@
 
   def vote
     @vote = Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
-
     if @vote.valid?
       if @vote.vote
         @post.up_votes = @post.up_votes + 1

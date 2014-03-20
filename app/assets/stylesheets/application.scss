@@ -49,7 +49,7 @@ li.logo > a {
 }
 
 .post_decoration {
-  background-color: #eddbbe;
+/*  background-color: #eddbbe;*/
   padding-left: 0px;
   padding-right: 0px;
   padding-bottom: 20px;
@@ -79,13 +79,10 @@ li.logo > a {
   text-align: center;
 }
 
-.post_title {
-  
-}
-
 .one-line-title {
+  text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .progress {

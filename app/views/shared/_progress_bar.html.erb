@@ -1,5 +1,5 @@
 <% if logged_in? %>
-  <% if @vote.vote %>
+  <% if current_user.votes %>
     <p class="vote_result_text">
       你和<%= raw number_to_percentage(post.up_ratio, precision: 0) %>的人喜歡這支廣告
     </p>

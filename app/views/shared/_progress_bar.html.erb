@@ -1,5 +1,6 @@
-<% if logged_in? %>
-  <% if post.votes.find_by(current_user.id).vote %>
+<% if logged_in? %> 
+<% binding.pry %>
+  <% if params[:vote] == "true" %>
     <p class="vote_result_text">
       你和<%= raw number_to_percentage(post.up_ratio, precision: 0) %>的人喜歡這支廣告
     </p>
@@ -8,6 +9,7 @@
       你和<%= raw number_to_percentage(post.down_ratio, precision: 0) %>的人討厭這支廣告
     </p>
   <% end %>
+  <% binding.pry %>
 <% else %>
   <% if post.up_ratio >= post.down_ratio %>
     <p class="vote_result_text">

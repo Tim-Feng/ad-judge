@@ -1,0 +1,14 @@
+<% if params[:tab] == 'ups' %>
+  <p class="vote_result_text">
+    你和<%= raw number_to_percentage(post.up_ratio, precision: 0) %>的人喜歡這支廣告
+  </p>
+<% elsif params[:tab] == 'downs' %>
+  <p class="vote_result_text">
+    你和<%= raw number_to_percentage(post.down_ratio, precision: 0) %>的人討厭這支廣告
+  </p>
+<% end %>
+<br>
+<div class="progress col-xs-8 col-sm-9 col-md-11 col-lg-8">
+  <div class="progress-bar progress-bar-success" style= "width: <%=raw number_to_percentage(post.up_ratio, precision: 2) %>%;"></div>
+  <div class="progress-bar progress-bar-danger" style= "width: <%=raw number_to_percentage(post.down_ratio, precision: 2) %>%;" ></div>
+</div>

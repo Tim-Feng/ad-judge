@@ -10,7 +10,7 @@
 <% if params[:tab] == 'ups' %>
   <div id="main_items" class="center2">
     <% @post_vote_true.each do |post| %>
-      <%= render 'posts/post', post: post, tab: 'ups' %>
+      <%= render 'post', post: post, tab: 'ups' %>
     <% end %>
   </div>
   <div class="paginate">
@@ -19,7 +19,7 @@
 <% elsif params[:tab] == 'downs' %>
   <div id="main_items" class="center2">
     <% @post_vote_false.each do |post| %>
-      <%= render 'posts/post', post: post %>
+      <%= render 'post', post: post %>
     <% end %>
   </div>
   <div class="paginate">

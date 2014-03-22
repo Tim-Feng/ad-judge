@@ -6,19 +6,14 @@
   <br>
   <% if logged_in? %>
     <div id="action_column_left_<%=post.id%>" class="col-xs-5 col-sm-5 col-md-5 col-lg-5 action_column_left">
-      <%= render 'shared/vote_buttons', post: post %>
-    </div>  
+      <%= render 'shared/social_share_column', post: post %>
+    </div>
   <% else %>
     <div id="action_column_left_<%=post.id%>" class="col-xs-5 col-sm-5 col-md-5 col-lg-5  action_column_left">
       <%= render 'shared/fake_vote', post: post %>
     </div>
   <% end %>
-    <div id="action_column_right_<%=post.id%>" class="col-xs-7 col-sm-5 col-md-5 col-lg-5  action_column_right">
-      <p class="vote_result_text">
-        投票，看看多少人和你一樣
-      </p>
-    <div class="progress col-xs-9 col-sm-10 col-md-10 col-lg-8 vote_progress">
-      <div class="progress-bar" style="width: 0%;"></div>
-    </div>
+  <div id="action_column_right_<%=post.id%>" class="col-xs-7 col-sm-5 col-md-5 col-lg-5  action_column_right">
+    <%= render 'progress_bar', post: post %>
   </div>
 </div>

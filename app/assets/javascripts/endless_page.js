@@ -4,7 +4,7 @@ function checkScroll() {
       $.rails.handleRemote($(".next a"));
     }
   } else {
-    setTimeout("checkScroll()", 150);
+    setTimeout("checkScroll()", 100);
   }
 }
 

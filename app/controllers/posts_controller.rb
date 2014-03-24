@@ -6,22 +6,22 @@
   def index
 
     if logged_in?
-      @posts = Kaminari.paginate_array(Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).order(:up_votes).reverse).page(params[:page]).per(4)
+      @posts = Kaminari.paginate_array(Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).order(:up_votes).reverse).page(params[:page]).per(6)
       if params[:order] && params[:order] == 'up_votes'
         @posts = @posts
       elsif params[:order] && params[:order] == 'down_votes'
-        @posts = Kaminari.paginate_array(Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).order(:down_votes).reverse).page(params[:page]).per(4)
+        @posts = Kaminari.paginate_array(Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).order(:down_votes).reverse).page(params[:page]).per(6)
       elsif params[:order] && params[:order] == 'the_latest'
-        @posts = Kaminari.paginate_array(Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).order(:created_at).reverse).page(params[:page]).per(4)
+        @posts = Kaminari.paginate_array(Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).order(:created_at).reverse).page(params[:page]).per(6)
       end  
     else
-      @posts = Kaminari.paginate_array(Post.order(:up_votes).reverse).page(params[:page]).per(4)
+      @posts = Kaminari.paginate_array(Post.order(:up_votes).reverse).page(params[:page]).per(6)
       if params[:order] && params[:order] == 'up_votes'
         @posts = @posts
       elsif params[:order] && params[:order] == 'down_votes'
-        @posts = Kaminari.paginate_array(Post.order(:down_votes).reverse).page(params[:page]).per(4)
+        @posts = Kaminari.paginate_array(Post.order(:down_votes).reverse).page(params[:page]).per(6)
       elsif params[:order] && params[:order] == 'the_latest'
-        @posts = Kaminari.paginate_array(Post.order(:created_at).reverse).page(params[:page]).per(4)
+        @posts = Kaminari.paginate_array(Post.order(:created_at).reverse).page(params[:page]).per(6)
       end 
 
     end

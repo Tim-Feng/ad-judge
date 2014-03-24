@@ -24,20 +24,21 @@ class Post < ActiveRecord::Base
  
     response_data = embedly_obj.marshal_dump
  
-    # post.favicon_url       =  response_data[:favicon_url]
+    
     post.title             =  response_data[:title]
+    post.description       =  response_data[:description]
+    post.url               =  response_data[:url]
+    # post.favicon_url       =  response_data[:favicon_url]
     # post.author_name       =  response_data[:author_name]
     # post.author_url        =  response_data[:author_url]
     # post.provider_name     =  response_data[:provider_name]
     # post.provider_url      =  response_data[:provider_url]
-    post.description       =  response_data[:description]
     # post.thumbnail_url     =  response_data[:thumbnail_url]
     # post.thumbnail_width   =  response_data[:thumbnail_width]
     # post.thumbnail_height  =  response_data[:thumbnail_height]
     # post.embedded_url      =  response_data[:html]
-    post.url               =  response_data[:url]
-    post.width             =  response_data[:width]
-    post.height            =  response_data[:height]
+    # post.width             =  response_data[:width]
+    # post.height            =  response_data[:height]
     post.save
   end
 

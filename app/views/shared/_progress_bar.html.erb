@@ -1,30 +1,47 @@
 <% if logged_in? %>
-  <% if params[:vote] == "true" || vote.vote %>
+  <% if params[:vote] == "true" %>
     <p class="vote_result_text">
       你和<%= raw number_to_percentage(post.up_ratio, precision: 0) %>的人喜歡這支廣告
     </p>
-  <% else %>
+  <% elsif params[:vote] == "false" %>
+    <p class="vote_result_text">
+      你和<%= raw number_to_percentage(post.down_ratio, precision: 0) %>的人討厭這支廣告
+    </p>
+  <% elsif vote.vote %>
+    <p class="vote_result_text">
+      你和<%= raw number_to_percentage(post.up_ratio, precision: 0) %>的人喜歡這支廣告
+    </p>
+  <% else%>
     <p class="vote_result_text">
       你和<%= raw number_to_percentage(post.down_ratio, precision: 0) %>的人討厭這支廣告
     </p>
   <% end %>
+  <br>
+  <div class="progress col-xs-12 col-sm-8 col-md-10 col-lg-9">
+    <div class="progress-bar progress-bar-success" style= "width: <%=raw number_to_percentage(post.up_ratio, precision: 2) %>%;"></div>
+    <div class="progress-bar progress-bar-danger" style= "width: <%=raw number_to_percentage(post.down_ratio, precision: 2) %>%;" ></div>
+  </div>
+
 <% else %>
+  <p class="vote_result_text">
+    登入，讓你的投票算數
+  </p>
+  <br>
   <% if post.up_ratio >= post.down_ratio %>
-    <p class="vote_result_text">
-      <%= raw number_to_percentage(post.up_ratio, precision: 0) %>的人喜歡這支廣告
-    </p>
+    <div class="progress col-xs-12 col-sm-8 col-md-10 col-lg-9">
+      <div class="progress-bar progress-bar-success" style= "width: <%== number_to_percentage(post.up_ratio, precision: 2) %>%;"></div>
+      <div class="progress-bar progress-bar-danger" style= "width: <%== number_to_percentage(post.down_ratio, precision: 2) %>%;" ></div>
+    </div>
   <% elsif post.up_ratio < post.down_ratio %>
-    <p class="vote_result_text">
-      <%= raw number_to_percentage(post.down_ratio, precision: 0) %>的人討厭這支廣告
-    </p>
+    <div class="progress col-xs-12 col-sm-8 col-md-10 col-lg-9">
+      <div class="progress-bar progress-bar-success" style= "width: <%== number_to_percentage(post.up_ratio, precision: 2) %>%;"></div>
+      <div class="progress-bar progress-bar-danger" style= "width: <%== number_to_percentage(post.down_ratio, precision: 2) %>%;" ></div>
+    </div>
   <% else %>
     <p class="vote_result_text">
       還沒有人投票
     </p>
   <% end %>
+  <br>
+  
 <% end %>
-<br>
-<div class="progress col-xs-12 col-sm-10 col-md-10 col-lg-8">
-  <div class="progress-bar progress-bar-success" style= "width: <%=raw number_to_percentage(post.up_ratio, precision: 2) %>%;"></div>
-  <div class="progress-bar progress-bar-danger" style= "width: <%=raw number_to_percentage(post.down_ratio, precision: 2) %>%;" ></div>
-</div>

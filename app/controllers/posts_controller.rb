@@ -48,7 +48,7 @@
       @post.up_votes = 0
       @post.down_votes = 0
       @post.save
-      redirect_to posts_path
+      redirect_to root_path(order: 'the_latest')
     else  
       render :new
     end

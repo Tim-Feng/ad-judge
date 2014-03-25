@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   has_many :comments
   has_many :votes, as: :voteable
 
-  validates :url, presence: true, uniqueness: true
+  validates :embedded_url, presence: true, uniqueness: true
   
   sluggable_column :title
 
@@ -28,6 +28,7 @@ class Post < ActiveRecord::Base
     post.title             =  response_data[:title]
     post.description       =  response_data[:description]
     post.url               =  response_data[:url]
+    post.embedded_url      =  fix_embedded_url(post.url) 
     # post.favicon_url       =  response_data[:favicon_url]
     # post.author_name       =  response_data[:author_name]
     # post.author_url        =  response_data[:author_url]
@@ -40,6 +41,10 @@ class Post < ActiveRecord::Base
     # post.width             =  response_data[:width]
     # post.height            =  response_data[:height]
     post.save
+  end
+
+  def fix_embedded_url(str)
+    str.split("/").last
   end
 
 end

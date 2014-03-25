@@ -1,6 +1,6 @@
 <% show_post ||= false %>
 
-<div class="well span5 center">
+<div class="well col-xs-12 col-sm-12 col-md-6 col-lg-6 center">
   <em>"<%= comment.body %>"</em>
   <% if show_post %>
     on <%= link_to comment.post.title, post_path(comment.post) %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219120941) do
+ActiveRecord::Schema.define(version: 20140327051021) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140219120941) do
     t.string   "language"
     t.integer  "up_votes"
     t.integer  "down_votes"
+    t.string   "youtube_video_id"
   end
 
   create_table "users", force: true do |t|

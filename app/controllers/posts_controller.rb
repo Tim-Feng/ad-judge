@@ -99,7 +99,7 @@
   private
 
   def post_params
-    params.require(:post).permit(:url, :language, :favicon_url)
+    params.require(:post).permit(:url, :language)
   end
 
   def set_post

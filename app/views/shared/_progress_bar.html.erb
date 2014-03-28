@@ -17,7 +17,7 @@
     </p>
   <% end %>
   <br>
-  <div class="progress col-xs-10 col-sm-10 col-md-10 col-lg-10">
+  <div class="progress col-xs-12 col-sm-8 col-md-10 col-lg-9">
     <div class="progress-bar progress-bar-success" style= "width: <%=raw number_to_percentage(post.up_ratio, precision: 2) %>%;"></div>
     <div class="progress-bar progress-bar-danger" style= "width: <%=raw number_to_percentage(post.down_ratio, precision: 2) %>%;" ></div>
   </div>
@@ -28,12 +28,12 @@
   </p>
   <br>
   <% if post.up_ratio >= post.down_ratio %>
-    <div class="progress col-xs-12 col-sm-10 col-md-10 col-lg-10">
+    <div class="progress col-xs-12 col-sm-8 col-md-10 col-lg-9">
       <div class="progress-bar progress-bar-success" style= "width: <%== number_to_percentage(post.up_ratio, precision: 2) %>%;"></div>
       <div class="progress-bar progress-bar-danger" style= "width: <%== number_to_percentage(post.down_ratio, precision: 2) %>%;" ></div>
     </div>
   <% elsif post.up_ratio < post.down_ratio %>
-    <div class="progress col-xs-12 col-sm-10 col-md-10 col-lg-10">
+    <div class="progress col-xs-12 col-sm-8 col-md-10 col-lg-9">
       <div class="progress-bar progress-bar-success" style= "width: <%== number_to_percentage(post.up_ratio, precision: 2) %>%;"></div>
       <div class="progress-bar progress-bar-danger" style= "width: <%== number_to_percentage(post.down_ratio, precision: 2) %>%;" ></div>
     </div>

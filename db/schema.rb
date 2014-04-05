@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140327051021) do
+ActiveRecord::Schema.define(version: 20140405030646) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -24,18 +24,7 @@ ActiveRecord::Schema.define(version: 20140327051021) do
   create_table "posts", force: true do |t|
     t.string   "title"
     t.string   "url"
-    t.string   "embedded_url"
     t.string   "slug"
-    t.string   "favicon_url"
-    t.string   "author_name"
-    t.string   "author_url"
-    t.string   "provider_name"
-    t.string   "provider_url"
-    t.string   "thumbnail_url"
-    t.string   "thumbnail_width"
-    t.string   "thumbnail_height"
-    t.string   "width"
-    t.string   "height"
     t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at"

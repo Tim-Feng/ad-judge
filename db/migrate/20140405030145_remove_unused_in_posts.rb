@@ -8,7 +8,7 @@ class RemoveUnusedInPosts < ActiveRecord::Migration
     remove_column :posts, :thumbnail_url
     remove_column :posts, :thumbnail_width
     remove_column :posts, :thumbnail_height
-    remove_column :posts, :html
+    # remove_column :posts, :html
     remove_column :posts, :width
     remove_column :posts, :height
   end

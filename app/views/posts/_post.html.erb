@@ -2,6 +2,7 @@
   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 center">
     <h4 class="one-line-title"><%= link_to post.title, post_path(post) %></h4>
   </div>
+  
   <iframe width="320" height="180" src="//www.youtube.com/embed/<%= post.youtube_video_id %>" frameborder="0" allowfullscreen></iframe>
   <br>
   <% if logged_in? %>

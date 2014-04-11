@@ -59,7 +59,7 @@ class Post < ActiveRecord::Base
     # post.width             =  response_data[:width]
     # post.height            =  response_data[:height]
  
-    post.save
+    # post.save
   end
 
   

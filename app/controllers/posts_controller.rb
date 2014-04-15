@@ -13,7 +13,8 @@
         @posts = Kaminari.paginate_array(Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).order(:down_votes).reverse).page(params[:page]).per(8)
       elsif params[:order] && params[:order] == 'the_latest'
         @posts = Kaminari.paginate_array(Post.where.not(id: @current_user.votes.pluck(:voteable_id).uniq).order(:created_at).reverse).page(params[:page]).per(8)
-      end  
+      end
+
     else
       @posts = Kaminari.paginate_array(Post.order(:up_votes).reverse).page(params[:page]).per(8)
       if params[:order] && params[:order] == 'up_votes'

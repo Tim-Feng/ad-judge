@@ -7,10 +7,9 @@
         '&link=http://www.ad-judge.com/posts/'+ post.slug +
         '&picture=http://img.youtube.com/vi/'+ post.youtube_video_id +
         '/hqdefault.jpg
-        &name='+ post.title, +
+        &name='+ post.title +
         '&redirect_uri=' + request.original_url,
         :target => :blank %>
-        <% binding.pry %> 
     </div>
   </div>
 <% else %>

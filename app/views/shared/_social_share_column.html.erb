@@ -3,7 +3,7 @@
     <%= link_to image_tag("facebook_share.png", alt: "login", size: "93x32"),
         'https://www.facebook.com/dialog/feed?
         app_id=' + ENV['FACEBOOK_KEY'] +
-        '&display=popup&link=http://www.ad-judge.com/posts/'+ post.slug +
+        '&display=touch&link=http://www.ad-judge.com/posts/'+ post.slug +
         '&picture=http://img.youtube.com/vi/'+ post.youtube_video_id +
         '/hqdefault.jpg&name='+ post.title +
         '&redirect_uri='+ request.original_url,

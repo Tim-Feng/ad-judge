@@ -7,7 +7,7 @@
         '&picture=http://img.youtube.com/vi/'+ post.youtube_video_id +
         '/hqdefault.jpg
         &name='+ post.title +
-        '&redirect_uri=http://www.ad-judge.com',
+        '&redirect_uri='+ request.original_url,
         :target => :blank %> 
   </div>
 <% else %>

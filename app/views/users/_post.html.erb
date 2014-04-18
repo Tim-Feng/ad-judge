@@ -5,10 +5,10 @@
   </div>
   <iframe width="320" height="180" src="//www.youtube.com/embed/<%= post.youtube_video_id %>" frameborder="0" allowfullscreen></iframe>
   <br>
-  <div id="action_column_left_<%=post.id%>" class="col-xs-4 col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-2 col-lg-3 col-lg-offset-2 action_column_left">
+  <div id="action_column_left_<%=post.id%>" class="col-xs-4 col-sm-2 col-sm-offset-2 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-1 action_column_left">
     <%= render 'shared/social_share_column', post: post %>
   </div>
-  <div id="action_column_right_<%=post.id%>" class="col-xs-8 col-sm-7 col-md-7 col-lg-7  action_column_right">
+  <div id="action_column_right_<%=post.id%>" class="col-xs-8 col-sm-8 col-md-8 col-lg-8  action_column_right">
     <%= render 'progress_bar', post: post %>
   </div>
 </div>

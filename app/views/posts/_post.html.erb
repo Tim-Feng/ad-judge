@@ -5,6 +5,7 @@
   
   <iframe width="320" height="180" src="//www.youtube.com/embed/<%= post.youtube_video_id %>" frameborder="0" allowfullscreen></iframe>
   <br>
+  
   <% if logged_in? %>
     <div id="action_column_left_<%=post.id%>" class="col-xs-4 col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-2 col-lg-3 col-lg-offset-2 action_column_left">
       <%= render 'shared/vote_buttons', post: post %>

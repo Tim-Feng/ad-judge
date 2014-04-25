@@ -1,8 +1,6 @@
 <% if logged_in? %>
   <div class="social_share_column">
-    <%= link_to image_tag("facebook_share.png", alt: "login", size: "93x32"),
-        "http://www.facebook.com/sharer.php?u=http://www.ad-judge.com/posts/"+ post.slug%>
-<!--     <%= link_to image_tag("facebook_share.png", alt: "login", size: "93x32"),
+     <%= link_to image_tag("facebook_share.png", alt: "login", size: "93x32"),
         'https://www.facebook.com/dialog/feed?
         app_id=' + ENV['FACEBOOK_KEY'] +
         '&display=page&
@@ -10,7 +8,7 @@
         '&picture=http://img.youtube.com/vi/'+ post.youtube_video_id +
         '/hqdefault.jpg&name='+ post.title +
         '&redirect_uri='+ request.original_url,
-        :target => :blank %> -->
+        :target => :blank %>
   </div>
 
 <% else %>

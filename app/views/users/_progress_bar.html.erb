@@ -9,6 +9,6 @@
 <% end %>
 <br>
 <div class="progress col-xs-11 col-sm-8 col-md-10 col-lg-9">
-  <div class="progress-bar progress-bar-success" style= "width: <%=raw number_to_percentage(post.up_ratio, precision: 2) %>%;"></div>
-  <div class="progress-bar progress-bar-danger" style= "width: <%=raw number_to_percentage(post.down_ratio, precision: 2) %>%;" ></div>
+  <div class="progress-bar progress-bar-success" style= "width: <%== number_to_percentage(post.up_ratio, precision: 2) %>;"></div>
+  <div class="progress-bar progress-bar-warning" style= "width: <%== number_to_percentage(post.down_ratio, precision: 2) %>;" ></div>
 </div>

@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <div class="social_share_column">
-     <%= link_to image_tag("facebook_share.png", alt: "login", size: "93x32"),
+     <%= link_to image_tag("facebook_share.png", alt: "login", size: "108x40"),
         'https://www.facebook.com/dialog/feed?
         app_id=' + ENV['FACEBOOK_KEY'] +
         '&display=page&
@@ -13,7 +13,7 @@
 
 <% else %>
   <div class="social_share_column">
-    <%= link_to image_tag("facebook_share.png", alt: "login", size: "93x32"), login_path %>
+    <%= link_to image_tag("facebook_share.png", alt: "login", size: "108x40"), login_path %>
   </div>
     <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-width="93" data-type="button"></div>
 <% end %>

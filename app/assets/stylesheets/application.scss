@@ -96,14 +96,13 @@ li.logo > a {
 
 .action_column_left {
   float: left;
-  margin-top: 4px;
+  padding-left: 0px;
+
 }
 
 .action_column_right {
-
-}
-
-.social_share_column {
+  float: left;
+  padding-right: 0px;
 
 }
 
@@ -112,10 +111,50 @@ li.logo > a {
   float: left;
 }
 
-.vote_progress {
-
+.vote_buttons_placement {
+  width: 110px;
 }
 
-.vote_buttons_placement {
-  width: 84px;
+.black {
+  color: #000;
+}
+
+.btn-success { 
+  border-color: #000; 
+  background-color: #F7E7CE;
+}
+
+.btn-success:hover { 
+  border-color: #F7E7CE;
+  background-color: #000; 
+}
+
+.btn-success:hover .black { 
+  color: #fff; 
+}
+
+.btn-danger { 
+  border-color: #000; 
+  background-color: #F7E7CE;
+}
+
+.btn-danger:hover { 
+  border-color: #F7E7CE;
+  background-color: #000; 
+}
+
+.btn-danger:hover .black { 
+  color: #fff; 
+}
+
+.progress-bar-success { 
+  background-color: #FACC84;
+}
+
+.progress-bar-warning {
+  background-color: #000;
+}
+
+button.navbar-toggle.navbar-xs:hover {
+  background-color: #222222;
 }

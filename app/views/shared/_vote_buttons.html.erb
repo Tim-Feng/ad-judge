@@ -1,8 +1,8 @@
 <div class='center vote_buttons_placement'>
-  <%= link_to vote_post_path(post, vote: true), method: 'post', remote: true, class: 'btn btn-large btn-success' do %>
-    <span class='glyphicon glyphicon-thumbs-up'></span>
+  <%= link_to vote_post_path(post, vote: true), method: 'post', remote: true, class: 'btn btn-lg btn-success' do %>
+    <span class='glyphicon glyphicon-thumbs-up black'></span>
   <% end %>
-  <%= link_to vote_post_path(post, vote: false), method: 'post', remote: true, class: 'btn btn-large btn-danger'  do %>
-    <span class='glyphicon glyphicon-thumbs-down'></span>
+  <%= link_to vote_post_path(post, vote: false), method: 'post', remote: true, class: 'btn btn-lg btn-danger'  do %>
+    <span class='glyphicon glyphicon-thumbs-down black'></span>
   <% end %>
 </div>

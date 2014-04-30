@@ -1,7 +1,7 @@
 <% if logged_in? %>
    <div class="social_share_column">
      <%= link_to image_tag("facebook_share.png", alt: "login", size: "108x40"),
-        'https://www.facebook.com/dialog/share?
+        'https://www.facebook.com/dialog/feed?
         app_id=' + ENV['FACEBOOK_KEY'] +
         '&display=page&
         &href=http://www.ad-judge.com/posts/'+ post.slug +

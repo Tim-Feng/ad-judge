@@ -1,1 +1,5 @@
-<meta property="og:image" content="https://s3.amazonaws.com/ad-judge-assets/facebook_logo_square.jpg" >
+<% if logged_in? %>
+  <meta property="og:image" content="https://s3.amazonaws.com/ad-judge-assets/facebook_logo_square.jpg" >
+<% else %> 
+  <meta property="og:image" content="http://img.youtube.com/vi/<%= post.youtube_video_id %>" >
+<% end %> 

@@ -149,7 +149,6 @@ li.logo > a {
 .progress-bar-success { 
   background-color: #FFE0B0;
 }
-/*#FFE3B8*/
 
 .progress-bar-warning {
   background-color: #000;
@@ -157,4 +156,18 @@ li.logo > a {
 
 button.navbar-toggle.navbar-xs:hover {
   background-color: #222222;
+}
+
+.btn-primary { 
+  border-color: #000; 
+  background-color: #F7E7CE;
+}
+
+.btn-primary:hover { 
+  border-color: #F7E7CE;
+  background-color: #000; 
+}
+
+.btn-primary:hover .black { 
+  color: #fff; 
 }

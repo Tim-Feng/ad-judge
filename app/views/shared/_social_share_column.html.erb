@@ -1,18 +1,20 @@
 <% if logged_in? %>
    <div class="social_share_column">
      <%= link_to image_tag("facebook_share.png", alt: "login", size: "108x40"),
-        'https://www.facebook.com/dialog/feed?
+        'https://www.facebook.com/dialog/share?
         app_id=' + ENV['FACEBOOK_KEY'] +
         '&display=page&
-        &link=http://www.ad-judge.com/posts/'+ post.slug +
+        &href=http://www.ad-judge.com/posts/'+ post.slug +
         '&picture=http://img.youtube.com/vi/'+ post.youtube_video_id +
         '/hqdefault.jpg&name='+ post.title +
         '&redirect_uri='+ request.original_url,
         :target => :blank %>
   </div>
-
 <% else %>
   <div class="social_share_column">
     <%= link_to image_tag("facebook_share.png", alt: "login", size: "108x40"), login_path %>
   </div>
 <% end %>
+<script>
+
+</script>

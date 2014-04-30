@@ -11,6 +11,6 @@
     <%= f.label :language, '廣告語系' %>
     <%= f.select :language, [['英文', 'english'], ['中文' ,'chinese'], ['日文', 'japanese']] %>
   </div> 
-  <%= f.submit(@post.new_record? ? '上傳' : '完成', class: 'btn btn-primary') %>
-  <%= link_to '取消', root_path(order: 'the_latest'),  class: 'btn btn-danger' %>
+  <%= f.submit(@post.new_record? ? '上傳' : '完成', class: 'btn btn-primary black') %>
+  <%= link_to '取消', root_path(order: 'the_latest'),  class: 'btn btn-danger black' %>
 <% end %>

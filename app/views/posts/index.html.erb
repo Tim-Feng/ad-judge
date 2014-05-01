@@ -1,3 +1,7 @@
+<% content_for :specific_og_metas %>
+<meta property="og:image" content="https://s3.amazonaws.com/ad-judge-assets/facebook_logo_square.jpg" >
+<% end %>
+
 <div id="main_items" class="center main_items_decoration">
   <% @posts.each do |post| %>
     <%= render 'post', post: post %>

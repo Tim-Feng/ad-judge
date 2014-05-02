@@ -7,9 +7,6 @@
         '/hqdefault.jpg&name='+ post.title +
         '&redirect_uri='+ request.original_url,
         :target => :blank %>
-      <%= link_to image_tag("facebook_share.png", alt: "login", size: "108x40"),
-        'https://www.facebook.com/sharer/sharer.php?u=http://www.ad-judge.com/posts/'+ post.slug,
-        :target => :blank %>
   </div>
 <% else %>
   <div class="social_share_column">

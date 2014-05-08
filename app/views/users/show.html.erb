@@ -1,8 +1,8 @@
 <ul class='nav nav-tabs'>
-  <li class='<%= 'active' if params[:tab] == 'ups' %>'>
+  <li class='<%= 'active' if params[:tab] == 'ups' %>user_tab'>
     <%= link_to "喜歡 (#{@user.votes.where(vote: true).size})", user_path(@user, tab: 'ups') %>
   </li>
-  <li class='<%= 'active' if params[:tab] == 'downs' %>'>
+  <li class='<%= 'active' if params[:tab] == 'downs' %>user_tab'>
     <%= link_to "討厭(#{@user.votes.where(vote: false).size})", user_path(@user, tab: 'downs') %>
   </li>
 </ul>

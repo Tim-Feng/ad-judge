@@ -5,5 +5,3 @@
   $("#main_items").append($("<%= j(render @post_vote_false) %>"));
   $(".pagination").html("<%= j(paginate @post_vote_false, :remote => true) %>");
 <% end %>
-
-checkScroll();

@@ -35,7 +35,10 @@
 
 $(document).on('click','.fb_share', function(){
     FB.ui({
-      method: 'share',
-      href: 'https://developers.facebook.com/docs/dialogs/',
-    }, function(response){});
+  method: 'share_open_graph',
+  action_type: 'og.likes',
+  action_properties: JSON.stringify({
+      object:'https://developers.facebook.com/docs/dialogs/',
+  })
+}, function(response){});
   });

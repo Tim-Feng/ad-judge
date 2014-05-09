@@ -32,12 +32,10 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
 
-$(document).ready(function(){
-  $('.fb_share').on('click',function(){
+
+$(document).on('click','.fb_share', function(){
     FB.ui({
       method: 'share',
       href: 'https://developers.facebook.com/docs/dialogs/',
     }, function(response){});
-  });  
-})
-  
+  });

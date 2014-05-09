@@ -1,7 +1,9 @@
 <% if logged_in? %>
-   <div class="social_share_column">
+<!--    <div class="social_share_column">
      <%= image_tag("facebook_share.png", alt: "share", size: "108x40", class: 'fb_share') %>
-  </div>
+  </div> -->
+  <div class="fb-share-button" data-href="http://www.ad-judge.com/posts/<%= post.slug %>" data-width="108" data-type="button"></div>
+
 <% else %>
   <div class="social_share_column">
     <%= link_to image_tag("facebook_share.png", alt: "login", size: "108x40"), login_path %>

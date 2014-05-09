@@ -2,15 +2,10 @@ infiniteScroll = ->
   $("#main_items").infinitescroll
     navSelector: "nav.pagination" # selector for the paged navigation (it will be hidden)
     nextSelector: "nav.pagination a[rel=next]" # selector for the NEXT link (to page 2)
-    itemSelector: "#main_items .post" # selector for all items you'll retrieve
-
-
+    itemSelector: "#main_items .post" # selector for all items you will retrieve
+    
 $(document).ready ->
   infiniteScroll()
-
-$('.user_tab').click ->
-  $(document).trigger('retrieve.infscr');
-
 
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.

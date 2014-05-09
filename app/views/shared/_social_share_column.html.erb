@@ -1,7 +1,6 @@
 <% if logged_in? %>
    <div class="social_share_column">
-     <%= link_to image_tag("facebook_share.png", alt: "login", size: "108x40"),
-                           share_link(post), :target => :blank %>
+     <%= image_tag("facebook_share.png", alt: "share", size: "108x40", class: 'fb_share') %>
   </div>
 <% else %>
   <div class="social_share_column">

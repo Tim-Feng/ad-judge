@@ -18,7 +18,7 @@
 //= require jquery.infinitescroll
   window.fbAsyncInit = function() {
         FB.init({
-          appId      : '{your-app-id}',
+          appId      : '<%= Settings.facebook.key %>',
           xfbml      : true,
           version    : 'v2.0'
         });
@@ -28,6 +28,16 @@
          var js, fjs = d.getElementsByTagName(s)[0];
          if (d.getElementById(id)) {return;}
          js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
+         js.src = "//connect.facebook.net/zh_TW/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
+
+$(document).ready(function(){
+  $('.fb_share').on('click',function(){
+    FB.ui({
+      method: 'share',
+      href: 'https://developers.facebook.com/docs/dialogs/',
+    }, function(response){});
+  });  
+})
+  

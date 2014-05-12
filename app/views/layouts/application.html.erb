@@ -17,6 +17,23 @@
     <%= favicon_link_tag %>
   </head>
   <body>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '<%= Settings.facebook.key %>',
+          xfbml      : true,
+          version    : 'v2.0'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/zh_TW/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
     <header>
       <nav class="navbar navbar-fixed-top navbar-inverse center" role="navigation">
         <div class="container">
@@ -45,6 +62,8 @@
         $(this).addInputs($('#url').data('preview'));
         return true;
       });
+
     </script>
+    <%= yield :facebook_share_dialog_og %>
   </body>
 </html>

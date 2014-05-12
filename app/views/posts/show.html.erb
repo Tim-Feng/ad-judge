@@ -72,3 +72,17 @@
 
 </div>
 
+<% content_for :facebook_share_dialog_og do %>
+  <script>
+  $(document).on('click','.fb_share', function(){
+    FB.ui({
+      method: 'share_open_graph',
+      action_type: 'og.likes',
+      action_properties: JSON.stringify({
+          object:'http://www.ad-judge.com/posts/<%= @post.slug %>',
+      })
+    }, function(response){});
+  });
+  </script>
+<% end %>
+

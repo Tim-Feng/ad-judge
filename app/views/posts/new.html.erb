@@ -2,3 +2,14 @@
   <%= render 'shared/content_title', title: '上傳廣告' %>
   <%= render 'form' %>
 </div>
+
+<script>
+  // Set up preview.
+  $('#url').preview({key: '<%= Settings.embedly.key %>'})
+  // On submit add hidden inputs to the form.
+  $('form').on('submit', function(){
+    $(this).addInputs($('#url').data('preview'));
+    return true;
+  });
+
+</script>

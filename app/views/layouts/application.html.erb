@@ -54,16 +54,7 @@
         </footer>
       </div> <!--! end of .container -->
     </div> <!--! end of #main -->
-    <script>
-      // Set up preview.
-      $('#url').preview({key: '<%= Settings.embedly.key %>'})
-      // On submit add hidden inputs to the form.
-      $('form').on('submit', function(){
-        $(this).addInputs($('#url').data('preview'));
-        return true;
-      });
-
-    </script>
+    
     <%= yield :facebook_share_dialog_og %>
   </body>
 </html>

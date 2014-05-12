@@ -17,15 +17,6 @@
     <%= favicon_link_tag %>
   </head>
   <body>
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&appId=<%= Settings.facebook.key %>&version=v2.0";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    </script>
     <header>
       <nav class="navbar navbar-fixed-top navbar-inverse center" role="navigation">
         <div class="container">

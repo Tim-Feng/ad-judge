@@ -16,29 +16,29 @@
 //= require_tree .
 //= require bootstrap
 //= require jquery.infinitescroll
-  window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '<%= Settings.facebook.key %>',
-          xfbml      : true,
-          version    : 'v2.0'
-        });
-      };
+//   window.fbAsyncInit = function() {
+//         FB.init({
+//           appId      : '<%= Settings.facebook.key %>',
+//           xfbml      : true,
+//           version    : 'v2.0'
+//         });
+//       };
 
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/zh_TW/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
+//       (function(d, s, id){
+//          var js, fjs = d.getElementsByTagName(s)[0];
+//          if (d.getElementById(id)) {return;}
+//          js = d.createElement(s); js.id = id;
+//          js.src = "//connect.facebook.net/zh_TW/sdk.js";
+//          fjs.parentNode.insertBefore(js, fjs);
+//        }(document, 'script', 'facebook-jssdk'));
 
 
-$(document).on('click','.fb_share', function(){
-    FB.ui({
-  method: 'share_open_graph',
-  action_type: 'og.likes',
-  action_properties: JSON.stringify({
-      object:'https://developers.facebook.com/docs/dialogs/',
-  })
-}, function(response){});
-  });
+// $(document).on('click','.fb_share', function(){
+//     FB.ui({
+//   method: 'share_open_graph',
+//   action_type: 'og.likes',
+//   action_properties: JSON.stringify({
+//       object:'https://developers.facebook.com/docs/dialogs/',
+//   })
+// }, function(response){});
+//   });

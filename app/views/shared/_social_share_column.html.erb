@@ -1,6 +1,6 @@
 <% if logged_in? %>
    <div class="social_share_column">
-     <%= image_tag("facebook_share.png", alt: "share", size: "108x40", class: 'fb_share') %>
+     <%= image_tag("facebook_share.png", alt: "share", size: "108x40", class: 'fb_share_<%=post.id%>') %>
   </div>
   
 <% else %>

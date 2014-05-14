@@ -1,13 +1,23 @@
 <% if logged_in? %>
-   <div class="social_share_column">
-     <%= image_tag("facebook_share.png", alt: "share", size: "108x40", class: 'fb_share_<%=post.id%>') %>
-  </div>
-  
+   <div id="fb_share_<%=post.id%>" class="social_share_column" >
+     <%= image_tag("facebook_share.png", alt: "share", size: "108x40") %>
+  </div>  
 <% else %>
   <div class="social_share_column">
     <%= link_to image_tag("facebook_share.png", alt: "login", size: "108x40"), login_path %>
   </div>
 <% end %>
-<script>
 
-</script>
+
+<script>
+  $(document).on('click','#fb_share_<%= post.id %>', function(){
+    FB.ui({
+      method: 'share_open_graph',
+      action_type: 'og.likes',
+      action_properties: JSON.stringify({
+          object:'http://www.ad-judge.com/posts/<%= post.slug %>',
+      })
+    }, function(response){});
+  });
+  </script>
+

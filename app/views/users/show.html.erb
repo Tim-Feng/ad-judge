@@ -1,4 +1,4 @@
-<ul class='nav nav-tabs'>
+<ul id="user_tab" class='nav nav-tabs'>
   <li class='<%= 'active' if params[:tab] == 'ups' %>user_tab'>
     <%= link_to "喜歡 (#{@user.votes.where(vote: true).size})", user_path(@user, tab: 'ups') %>
   </li>

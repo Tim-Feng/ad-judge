@@ -8,9 +8,18 @@
   </div>
 <% end %>
 
-
 <script>
   $(document).on('click','#fb_share_<%= post.id %>', function(){
+    $("meta[property='og:url']").remove();
+    $('head').append( '<meta property="og:url" content="http://www.ad-judge.com/posts/<%= post.slug.gsub("/vote","") %>" />' );
+    $("meta[property='og:title']").remove();
+    $('head').append( '<meta property="og:title" content="<%= post.title %>" />' );
+    $("meta[property='og:type']").remove();
+    $('head').append( '<meta property="og:type" content="article" />' );
+    $("meta[property='og:description']").remove();
+    $('head').append( '<meta property="og:description" content="<%= post.title %>" />' );
+    $("meta[property='og:image']").remove();
+    $('head').append( '<meta property="og:image" content="http://img.youtube.com/vi/<%= post.youtube_video_id %>/hqdefault.jpg" />' );
     FB.ui({
       method: 'share_open_graph',
       action_type: 'og.shares',
@@ -19,5 +28,4 @@
       })
     }, function(response){});
   });
-  </script>
-
+</script>

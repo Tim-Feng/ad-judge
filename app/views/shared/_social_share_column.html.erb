@@ -9,13 +9,13 @@
   </div>
 <% end %>
 
-<script type='text/javascript'>
-  $(document).on('click','#fb_share_<%= post.id %>', function(){
-    FB.ui({
-      method: 'share',
-      href: 'http://www.ad-judge.com/posts/<%= post.slug %>',
-    }, function(response){});
-  });
-</script>
-
+  <script type='text/javascript'>
+    $("#action_column_left_<%=post.id%>").on('click','#fb_share_<%= post.id %>', function(){
+      FB.ui({
+        method: 'share',
+        href: 'http://www.ad-judge.com/posts/<%= post.slug %>',
+      }, function(response){});
+    });
+  </script>
+<% binding.pry %>
   

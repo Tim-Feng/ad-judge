@@ -4,10 +4,7 @@ infiniteScroll = ->
     nextSelector: "nav.pagination a[rel=next]" # selector for the NEXT link (to page 2)
     itemSelector: "#main_items .post" # selector for all items you will retrieve
 
-$(document).ready ->
-  infiniteScroll()
-
-$(document).on "click", "#user_tab", ->
+$(document).on 'page:change', ->
   infiniteScroll()
 
 # Place all the behaviors and hooks related to the matching controller here.

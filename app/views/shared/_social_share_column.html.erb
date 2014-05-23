@@ -1,5 +1,5 @@
 <% if logged_in? %>
-  <div id="fb_share_<%=post.id%>" class="social_share_column" >
+  <div id="fb_share_<%=post.id%>" class="social_share_column" post-id="<%=post.slug%>" >
     <%= image_tag("facebook_share.png", alt: "share", size: "108x40") %>
   </div>
 
@@ -9,13 +9,7 @@
   </div>
 <% end %>
 
-  <script type='text/javascript'>
-    $("#action_column_left_<%=post.id%>").on('click','#fb_share_<%= post.id %>', function(){
-      FB.ui({
-        method: 'share',
-        href: 'http://www.ad-judge.com/posts/<%= post.slug %>',
-      }, function(response){});
-    });
-  </script>
-<% binding.pry %>
+<script type='text/javascript'>
+
+</script>
   

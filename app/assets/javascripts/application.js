@@ -21,7 +21,7 @@ $(document).on('click','.social_share_column', function(){
     var slug = $(this).attr("post-id");
     FB.ui({
       method: 'share',
-      href: 'http://www.ad-judge.com/posts/' + encodeURIComponent(slug)  ,
+      href: 'http://www.ad-judge.com/posts/' + encodeURIComponent(slug),
     }, function(response){});
   });
 });

@@ -21,9 +21,15 @@ $(document).on('click','.social_share_column', function(){
     var slug = $(this).attr("post-id");
     FB.ui({
       method: 'share',
-      href: 'http://www.ad-judge.com/posts/' + encodeURIComponent(slug),
-      redirect_uri:  'http://www.ad-judge.com/#close_window',
-    }, function(response){});
+      href: 'http://localhost:3000/' + encodeURIComponent(slug),
+      redirect_uri:  'http://localhost:3000/#close_window',
+    }, function(response){    
+      if (response && !response.error_code) {
+        alert('Posting completed.');
+      } else {
+        alert('Error while posting.');
+      }
+    });
   });
 });
 

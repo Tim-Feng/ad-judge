@@ -22,7 +22,6 @@ $(document).on('click','.social_share_column', function(){
     FB.ui({
       method: 'share',
       href: 'http://localhost:3000/' + encodeURIComponent(slug),
-      redirect_uri:  'http://localhost:3000/#close_window',
     }, function(response){    
       if (response && !response.error_code) {
         alert('Posting completed.');

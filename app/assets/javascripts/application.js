@@ -31,6 +31,4 @@ $(document).on('click','.social_share_column', function(){
     });
   });
 });
-
-if (window.location.hash == '#close_window') window.close();
   

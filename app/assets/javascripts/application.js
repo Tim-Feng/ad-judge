@@ -24,11 +24,13 @@ $(document).on('click','.social_share_column', function(){
       href: 'http://www.ad-judge.com/posts/' + encodeURIComponent(slug),
     }, function(response){    
       if (response && !response.error_code) {
-        alert('Posting completed.');
+        window.close();
       } else {
         alert('Error while posting.');
       }
     });
   });
 });
+
+ if (window.location.hash == '#close_window') window.close();
   

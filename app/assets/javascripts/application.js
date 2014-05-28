@@ -22,13 +22,15 @@ $(document).on('click','.social_share_column', function(){
     FB.ui({
       method: 'share',
       href: 'http://www.ad-judge.com/posts/' + encodeURIComponent(slug),
-      }, function(response){    
+    }, function(response){    
       if (response && !response.error_code) {
         alert('Posting completed.');
       } else {
-        alert('test.');
+        alert('Error while posting.');
       }
     });
   });
 });
+
+ if (window.location.hash == '#close_window') window.close();
   

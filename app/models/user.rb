@@ -24,4 +24,12 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def admin?
+    self.role == "admin"
+  end
+
+  def moderator?
+    self.role == "moderator"
+  end
 end

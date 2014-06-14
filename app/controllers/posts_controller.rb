@@ -2,6 +2,7 @@
   before_action :set_post, only: [:show, :edit, :update, :vote, :fake_vote]
   before_action :require_user, except: [:index, :show, :fake_vote]
   before_action :require_creator, only: [:edit, :update]
+  before_action :require_admin, only: [:new, :create]
 
   def index
 

@@ -25,7 +25,7 @@ $(document).on('click','.social_share_column', function(){
       href: 'http://www.ad-judge.com/posts/' + encodeURIComponent(slug),
     }, function(response){    
       if (response && !response.error_code) {
-        alert('Posting completed.');
+        console.log();
       } else {
         alert('Error while posting.');
       }

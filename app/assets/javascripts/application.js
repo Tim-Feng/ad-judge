@@ -27,7 +27,7 @@ $(document).on('click','.social_share_column', function(){
       if (response && !response.error_code) {
         console.log();
       } else {
-        alert('Error while posting.');
+        console.log();
       }
     });
   });

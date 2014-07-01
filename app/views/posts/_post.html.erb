@@ -5,25 +5,15 @@
   
   <iframe width="320" height="180" src="//www.youtube.com/embed/<%= post.youtube_video_id %>" frameborder="0" allowfullscreen></iframe>
   <br>
-  
-  <% if logged_in? %>
-    <div id="action_column_left_<%=post.id%>" class="col-xs-4 col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-2 col-lg-3 col-lg-offset-2 action_column_left">
+  <div id="action_column_left_<%=post.id%>" class="col-xs-4 col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-2 col-lg-3 col-lg-offset-2 action_column_left">
+    <%= render 'shared/social_share_column', post: post %>
+  </div>  
+    
+  <div id="action_column_right_<%=post.id%>" class="col-xs-8 col-sm-7 col-md-7 col-lg-7  action_column_right">
+    <% if logged_in? %>
       <%= render 'shared/vote_buttons', post: post %>
-    </div>  
-  <% else %>
-    <div id="action_column_left_<%=post.id%>" class="col-xs-4 col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-2 col-lg-3 col-lg-offset-2 action_column_left">
+    <% else %>
       <%= render 'shared/fake_vote', post: post %>
-    </div>
-  <% end %>
-    <div id="action_column_right_<%=post.id%>" class="col-xs-8 col-sm-7 col-md-7 col-lg-7  action_column_right">
-      <div class="vote_result_text">
-        投票，看看你是多數還少數
-      </div>
-      <br>
-
-    <div class="progress col-xs-11 col-sm-7 col-md-9 col-lg-7 vote_progress">
-      <div class="progress-bar progress-bar-success" style= "width: 50%;"></div>
-      <div class="progress-bar progress-bar-warning" style= "width: 50%;" ></div>
-    </div>
+    <% end %>
   </div>
 </div>

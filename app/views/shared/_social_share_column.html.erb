@@ -1,11 +1,10 @@
-<% if logged_in? %>
-  <div id="fb_share_<%=post.id%>" class="social_share_column" post-id="<%=post.slug%>" >
-    <%= image_tag("facebook_share.png", alt: "share", size: "108x40") %>
-  </div>
+<div id="fb_share_<%=post.id%>" class="social_share_column" post-id="<%=post.slug%>" >
+  <%= image_tag("facebook_share.png", alt: "share", size: "120x46") %>
 
-<% else %>
+
+</div>
+<!-- 
   <div class="social_share_column" post-id="<%=post.slug%>">
     <%= link_to image_tag("facebook_share.png", alt: "login", size: "108x40"), login_path %>
   </div>
-<% end %>
-  
+-->

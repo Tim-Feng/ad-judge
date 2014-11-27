@@ -23,6 +23,8 @@ group :doc do
 end
 
 group :development do
+  gem 'rails_best_practices'
+  
   gem 'quiet_assets'
   gem 'pry'
   gem 'sqlite3'
